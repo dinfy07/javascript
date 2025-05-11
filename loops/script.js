@@ -39,6 +39,11 @@ for (let i = 1; i < 11; i++){
 }
 
 // TAsk 6
+for (let i = 1; i < 102; i++){
+    console.log(i)
+}
+
+// TAsk 7
 let numbers = [1, 2, 3, 4, 5]
 for (let i = 0; i < numbers.length; i++){
     console.log(numbers[i])
@@ -52,8 +57,8 @@ for (let i = 10; i > 0; i--){
 }
 
 // TAsk 10
-for (let i = 0; i < 11; i++){
-    if (i==0){
+for (let i = 0; i < 13; i+=2){
+    if (i == 12){
         continue
     }
     console.log(i)

@@ -25,7 +25,7 @@ localStorage.setItem("person", JSON.stringify(parsePerson))
 console.log(JSON.parse(localStorage.getItem("person")))
 
 // TAsk 5
-if (parsePerson){
+if (localStorage.getItem("person")){
     console.log(JSON.parse(localStorage.getItem("person")))
 }else{
     let user = {

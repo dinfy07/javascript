@@ -4,6 +4,8 @@ console.log(fruits)
 
 // Task 2
 console.log(fruits[0], fruits[2])
+fruits.push("Груша")
+console.log(fruits)
 
 // TAsk 3
 fruits.pop()
@@ -15,6 +17,7 @@ fruits.forEach(fruit => console.log(fruit));
 
 // Task 5
 let lengths = fruits.map(fruit => fruit.length);
+console.log(lengths);
 
 // Task 6
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

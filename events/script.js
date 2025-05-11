@@ -29,7 +29,7 @@ list.forEach(li => {
     li.addEventListener("click", function (event) {
         console.log(event.target.textContent);
     })
-})
+}) // если добавим на ul мы же будем сразу все li выводить на консоль нет?
 // TAsk 7
 let code = document.querySelector("#keyboardInput")
 code.addEventListener("keydown", function(event){
