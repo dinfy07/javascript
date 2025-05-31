@@ -15,27 +15,21 @@ const time = setInterval(() => {
 // Task 3
 setTimeout(() =>{
     clearInterval(time);
-}, 5000)
+}, 6000)
 
 // Task 4
-const fetchData = new Promise((resolve) => {
+function fetchData(){
+    return new Promise((resolve) => {
     setTimeout(() => {
         resolve ("Данные получены 4. 6")
     }, 3000)
 })
-fetchData.then(result => console.log(result))
-
-// Task 5
-const fetchDataWithError = new Promise((reject) => {
-    setTimeout(() => {
-        reject ("Данные получены 5")
-    }, 2000)
-})
-fetchData.catch(error => console.log(error))
+}
+fetchData().then(result => console.log(result))
 
 // Task 6
 async function fetchDataAsync() {
-    const response = await fetchData;
+    const response = await fetchData();
     console.log(response)
 }
 fetchDataAsync()
@@ -43,7 +37,7 @@ fetchDataAsync()
 // Task 7
 async function fetchDataWithErrorAsync() {
     try{
-        const response = await fetchData;
+        const response = await fetchData();
     } catch (error){
         console.log(error)
     }
