@@ -18,7 +18,7 @@
 // }
 // xhr.send()
 //
-// Task 3
+// // Task 3
 // const xhr = new XMLHttpRequest();
 // xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
 // xhr.onload = function () {
@@ -44,7 +44,7 @@
 //     })
 // }
 //
-// TAsk 4
+// // TAsk 4
 // const xhr = new XMLHttpRequest();
 // xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
 // xhr.onload = function () {
@@ -67,16 +67,16 @@
 //         const li = document.createElement('li')
 //         li.textContent = `Заголовок: ${user.title}`
 //         ul.appendChild(li)
-//         body = document.createElement('li')
+//         const body = document.createElement('li')
 //         body.textContent = `Текст ${user.body}`
-//         li.appendChild(body)
-//         id = document.createElement('li')
-//         id.textContent = `Айди пользователя ${user.id}`
-//         body.appendChild(id)
+//         ul.appendChild(body)
+//         const id = document.createElement('li')
+//         id.textContent = `Айди пользователя ${user.userId}`
+//         ul.appendChild(id)
 //     })
 // }
 //
-// Task 5
+// // Task 5
 // const xhr = new XMLHttpRequest();
 // xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
 // xhr.onload = function () {
@@ -91,40 +91,41 @@
 //     console.log(`Error: ${xhr.status} ${xhr.statusText}`)
 // }
 // xhr.send()
-//
+
 // Task 6
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
+const wait = document.getElementById('body')
+const h1 = document.createElement('h1')
+h1.textContent = "Waiting..."
 xhr.onload = function () {
     if (xhr.status == 200){
         const data = JSON.parse(xhr.responseText)
         render(data)
         console.log(data)
     } else {
+        wait.removeChild(h1)
         console.log(`Error: ${xhr.status} ${xhr.statusText}`)
     }
 }
 xhr.onerror = function () {
+    wait.removeChild(h1)
     console.log(`Error: ${xhr.status} ${xhr.statusText}`)
 }
 xhr.send()
 
 function render(users) {
-    const wait = document.getElementById('body')
-    const h1 = document.createElement('h1')
-    h1.textcontent = "Waiting..."
     wait.appendChild(h1)
     const ul = document.getElementById('list')
     users.forEach(user => {
         const li = document.createElement('li')
         li.textContent = `Заголовок: ${user.title}`
         ul.appendChild(li)
-        body = document.createElement('li')
+        let body = document.createElement('li')
         body.textContent = `Текст ${user.body}`
-        li.appendChild(body)
-        id = document.createElement('li')
+        ul.appendChild(body)
+        let id = document.createElement('li')
         id.textContent = `Айди пользователя ${user.id}`
         body.appendChild(id)
     })
-    wait.removeChild(h1)
 }

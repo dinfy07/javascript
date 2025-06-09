@@ -79,6 +79,11 @@
 // }
 // createPost()
 //
-fetch('https://jsonplaceholder.typicode.com/comments')
+fetch('https://jsonplaceholder.typicode.com/comments',{
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+    }
+})
 .then(res => res.json())
 .then(data => console.log(data));
