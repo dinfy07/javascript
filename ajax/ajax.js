@@ -98,13 +98,14 @@ xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true)
 const wait = document.getElementById('body')
 const h1 = document.createElement('h1')
 h1.textContent = "Waiting..."
+wait.appendChild(h1)
 xhr.onload = function () {
+    wait.removeChild(h1)
     if (xhr.status == 200){
         const data = JSON.parse(xhr.responseText)
         render(data)
         console.log(data)
     } else {
-        wait.removeChild(h1)
         console.log(`Error: ${xhr.status} ${xhr.statusText}`)
     }
 }
@@ -115,7 +116,6 @@ xhr.onerror = function () {
 xhr.send()
 
 function render(users) {
-    wait.appendChild(h1)
     const ul = document.getElementById('list')
     users.forEach(user => {
         const li = document.createElement('li')
